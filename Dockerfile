@@ -1,4 +1,4 @@
-FROM ubuntu:7
+FROM node:7
 
 RUN cd /opt && git clone https://github.com/kiwiirc/kiwiirc.git
 
