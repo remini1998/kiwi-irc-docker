@@ -1,4 +1,4 @@
-FROM node:7
+FROM ubuntu:7
 
 RUN cd /opt && git clone https://github.com/kiwiirc/kiwiirc.git
 
@@ -6,10 +6,14 @@ WORKDIR /opt/KiwiIRC
 
 EXPOSE 7778
 
-RUN npm install
+RUN yarn install
 
 #COPY config.js /opt/KiwiIRC
 
-RUN ./kiwi build
+RUN yarn run build
 
-ENTRYPOINT ["/opt/KiwiIRC/kiwi","-f","start"]
+WORKDIR /opt/KiwiIRC/dist
+
+RUN ls
+
+ENTRYPOINT ["/opt/KiwiIRC/dist/kiwi","-f","start"]
