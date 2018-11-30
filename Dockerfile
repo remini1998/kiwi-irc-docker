@@ -1,10 +1,8 @@
-FROM node:7
+FROM node:7 AS build-env
 
 RUN cd /opt && git clone https://github.com/kiwiirc/kiwiirc.git
 
 WORKDIR /opt/kiwiirc
-
-EXPOSE 7778
 
 RUN yarn install
 
@@ -14,6 +12,12 @@ RUN yarn run build
 
 WORKDIR /opt/kiwiirc/dist
 
-RUN ls
+FROM httpd:2.4
 
-ENTRYPOINT ["/opt/kiwiirc/dist/kiwi","-f","start"]
+EXPOSE 7778:80
+
+WORKDIR /usr/local/apache2/htdocs/
+
+COPY --from=build-env . /usr/local/apache2/htdocs/
+
+
