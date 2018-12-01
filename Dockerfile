@@ -18,6 +18,6 @@ EXPOSE 7778:80
 
 WORKDIR /usr/local/apache2/htdocs/
 
-COPY --from=build-env . /usr/local/apache2/htdocs/
+COPY --from=build-env /opt/kiwiirc/dist/* /usr/local/apache2/htdocs/
 
 
