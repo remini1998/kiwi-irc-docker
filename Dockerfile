@@ -1,4 +1,4 @@
-#FROM node:7 AS build-env
+# FROM node:7 AS build-env
 FROM node:7
 
 EXPOSE 7778:8080
@@ -9,11 +9,11 @@ WORKDIR /opt/kiwiirc
 
 RUN yarn install
 
-#COPY config.js /opt/kiwiirc
+# COPY config.js /opt/kiwiirc
 
 RUN yarn run build
 
-WORKDIR /opt/kiwiirc/dist
+# WORKDIR /opt/kiwiirc/dist
 CMD ["yarn", "run", "dev"]
 
 # FROM httpd:2.4-alpine
