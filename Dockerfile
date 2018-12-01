@@ -11,7 +11,7 @@ RUN yarn install
 
 # COPY config.js /opt/kiwiirc
 
-RUN yarn run build
+# RUN yarn run build
 
 # WORKDIR /opt/kiwiirc/dist
 CMD ["yarn", "run", "dev"]
