@@ -1,7 +1,7 @@
 #FROM node:7 AS build-env
 FROM node:7
 
-EXPOSE 7778:80
+EXPOSE 7778:8080
 
 RUN cd /opt && git clone https://github.com/kiwiirc/kiwiirc.git
 
