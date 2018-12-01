@@ -12,7 +12,7 @@ RUN yarn run build
 
 WORKDIR /opt/kiwiirc/dist
 
-FROM httpd:2.4
+FROM httpd:2.4-alpine
 
 EXPOSE 7778:80
 
